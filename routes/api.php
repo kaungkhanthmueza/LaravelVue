@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::post('login', [AuthController::class, 'login']);
+Route::post('registers',[AuthController::class,'register']);
  
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 });
-Route::post('login', [AuthController::class, 'login']);
-Route::post('registers',[AuthController::class,'register']);
+Route::middleware(['auth:sanctum'])->group(function (): void
+{
+    Route::get('index',[SkillController::class,'index']);
+    Route::post('store',[SkillController::class,'store']);
+    Route::get('edit',[SkillController::class,'edit']);
+    Route::get('detail',[SkillController::class,'detail']);
+});
+

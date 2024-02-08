@@ -1,76 +1,28 @@
 <template>
-  <div>
-          <!--==================== HEADER ====================-->
-        <!-- Header -->
-        <header class="header" id="header">
-            <div class="header_logo " >
-                <i class="header_collapse-btn fas fa-align-left"></i>
-                <img class="logo_img" src=""
-                />
-            </div>
-            <div class="header_search">
-                <i class="header_search-icon fas fa-search"></i>
-                <input class="header_search-input" type="text" placeholder="Search"/>
-            </div>
-            <div class="header_profile " @click = "openNavHeader">
-                <div class="header_profile-imgWrapper ">
-                    <!-- <img class="header_profile-img" src="assets/img/avatar.jpg" alt=""/> -->
-                </div>
-                <p class="header_profile-name">
-                    Zander Ford
-                </p>
-                
-            </div>
-            <div class="nav__btns" >
-                <!--====== THEME CHANGE BUTTON ======-->
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps "></i>
-                </div>
-            </div>
-        </header>
-        <!-- End Header -->
+<div class="flex justify-between bg-gray-500 mx-w-full">
+  <div class="bg-blue-300 ">
+<h1>Title</h1>
 
-        <!-- Header Profile -->
-        <div>
-            <span class="header_profile-name--nav" v-bind:class="{show:showNavHeader}">
-                <span class="header_profile-name--nav--pointer">
-                    <i class="fas fa-sort-up"></i>
-                </span>
-                <ul class="header_profile-name--nav--list">
-                    <li class="header_profile-name--nav--item">
-                        <a class="header_profile-name--nav--link" href="#">
-                            Profile 
-                        </a>
-                    </li>
-                    <li class="header_profile-name--nav--item">
-                        <a class="header_profile-name--nav--link" href="#">
-                            Message 
-                        </a>
-                    </li>
-                    <li class="header_profile-name--nav--item">
-                        <a class="header_profile-name--nav--link" href="#" @click = "logout">
-                            Logout 
-                        </a>
-                    </li>
-                </ul>
-            </span>
-        </div>
-        <!-- End Profile Header -->
   </div>
+  <div class="bg-white">Search</div>
+  <div class="  bg-yellow-400 flex justify-itmes-center">
+  <div>
+     <button type="button" @click= "logout" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">LogOut</button>
+     </div>
+  <div>
+    
+  </div>
+  </div>
+</div>
+ 
 </template>
 
 <script setup>
- import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
+
 
 const router = useRouter()
-const showNavHeader = ref(false)
-
- const openNavHeader = () => {
-    showNavHeader.value =!showNavHeader.value
- }
 
     const logout = () => {
         localStorage.removeItem('token');
@@ -79,5 +31,5 @@ const showNavHeader = ref(false)
 </script>
 
 <style>
-
+@vite('css/app.css');
 </style>

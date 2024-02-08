@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 //admin
 import homeAdminIndex from '../components/admin/index.vue';
+import create from '../components/admin/SkillCreate.vue';
 //pages
 import homePageIndex from '../components/home/index.vue';
 //not found
@@ -47,6 +48,13 @@ const routes = [
     {
         path: '/register',
         component : register,
+    },
+    {
+        path: '/create',
+        component : create,
+        meta:{
+            requiresAuth: true
+        }
     }
     
 
